@@ -6,6 +6,15 @@
 <title>Pradeep Pandey</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <meta name="description" content="Pradeep Pandey — Flutter Team Lead and mobile architect. 9+ years building UPI payments, banking, HRMS and travel apps.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Pradeep Pandey · Flutter Team Lead">
+<meta property="og:description" content="Flutter &amp; Android engineer with 9+ years. Leads Timepay, a UPI app with 10L+ downloads. Ships UPI payments, banking, HRMS and travel apps. Open to Flutter Team Lead roles.">
+<meta property="og:url" content="https://pradeep817.github.io/">
+<meta property="og:image" content="https://pradeep817.github.io/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://pradeep817.github.io/og.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
@@ -136,6 +145,11 @@ section{padding-block:72px;border-top:1px solid var(--line)}
 .feat{border:1px solid var(--line);border-radius:12px;padding:14px;display:flex;flex-direction:column;gap:4px;background:var(--bg)}
 .feat b{font:700 15px/1.2 var(--f-display)}
 .feat span{font-size:13px;color:var(--muted);line-height:1.4}
+.proof{display:flex;align-items:center;gap:12px;flex-wrap:wrap;background:var(--warm-soft);border-radius:12px;padding:12px 16px}
+.proof b{font:800 26px/1 var(--f-display);color:var(--warm)}
+.proof span{font-size:14px;color:var(--ink)}
+.proof a{margin-left:auto;font:600 14px/1 var(--f-body);color:var(--accent);text-decoration:none}
+.proof a:hover{text-decoration:underline}
 /* reuse diagram */
 .reuse{display:flex;flex-direction:column;align-items:center;gap:0;padding:8px 0}
 .node{border:1px solid var(--line);background:var(--bg);border-radius:10px;padding:9px 12px;font:500 12.5px/1.2 var(--f-mono);text-align:center}
@@ -144,6 +158,22 @@ section{padding-block:72px;border-top:1px solid var(--line)}
 .branches{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;border-top:1px solid var(--line);padding-top:18px;position:relative}
 @media (max-width:860px){.cases{grid-template-columns:1fr}.case.lead{grid-template-columns:1fr}}
 @media (max-width:420px){.featlist{grid-template-columns:1fr}}
+
+/* leadership */
+.lead-grid{display:grid;grid-template-columns:.95fr 1.05fr;gap:28px;align-items:start}
+.decision{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:28px;display:flex;flex-direction:column;gap:18px;min-width:0}
+.decision h3{font-size:24px;font-weight:700}
+.dl{display:grid;grid-template-columns:96px 1fr;gap:10px 18px;margin:0}
+.dl dt{font:500 12px/1.6 var(--f-mono);text-transform:uppercase;letter-spacing:.06em;color:var(--accent)}
+.dl dd{margin:0;font-size:15px;color:var(--ink)}
+.practices{display:flex;flex-direction:column;min-width:0}
+.practice{display:grid;grid-template-columns:44px 1fr;gap:16px;padding-block:20px;border-top:1px solid var(--line)}
+.practice:first-child{border-top:0;padding-top:4px}
+.practice .ic{width:44px;height:44px;border-radius:12px;background:var(--accent-soft);color:var(--accent);display:grid;place-items:center;font:500 14px/1 var(--f-mono)}
+.practice h3{font-size:18px;font-weight:700;margin-bottom:6px}
+.practice p{color:var(--muted);font-size:15px}
+@media (max-width:860px){.lead-grid{grid-template-columns:1fr}}
+@media (max-width:420px){.dl{grid-template-columns:1fr;gap:4px}.dl dd{margin-bottom:10px}}
 
 /* timeline */
 .log{display:flex;flex-direction:column}
@@ -201,6 +231,7 @@ footer .wrap{padding-block:22px;border-top:1px solid color-mix(in srgb,var(--bg)
     <a class="brand" href="#top"><i>PP</i>Pradeep Pandey</a>
     <ul>
       <li><a href="#work">Work</a></li>
+      <li><a href="#leadership">Leadership</a></li>
       <li><a href="#experience">Experience</a></li>
       <li><a href="#skills">Skills</a></li>
       <li><a href="#contact">Contact</a></li>
@@ -216,6 +247,7 @@ footer .wrap{padding-block:22px;border-top:1px solid color-mix(in srgb,var(--bg)
       <p class="lede">I'm <b>Pradeep Pandey</b>, a Flutter and Android engineer with <b>9+ years</b> shipping production apps in <b>UPI payments, banking, HRMS and travel</b>. I design shared core packages that several bank apps run on, lead new builds from the first commit to the App Store, and mentor the developers who build on them.</p>
       <div class="actions">
         <a class="btn primary" href="#contact">Get in touch</a>
+        <a class="btn" href="Pradeep_Pandey_Resume.pdf" target="_blank" rel="noopener">Resume (PDF) ↓</a>
         <a class="btn" href="#work">See my work</a>
         <a class="btn" id="linkedin-btn" href="#" target="_blank" rel="noopener" hidden>LinkedIn ↗</a>
         <a class="btn" id="github-btn" href="#" target="_blank" rel="noopener" hidden>GitHub ↗</a>
@@ -223,8 +255,8 @@ footer .wrap{padding-block:22px;border-top:1px solid color-mix(in srgb,var(--bg)
       <div class="stats">
         <div><b>9+</b><span>years in mobile engineering</span></div>
         <div><b>15</b><span>production apps delivered</span></div>
-        <div><b>3</b><span>bank &amp; finance apps on core I designed</span></div>
-        <div><b>2</b><span>stores shipped to: Play &amp; App Store</span></div>
+        <div><b>3</b><span>developers I lead &amp; mentor</span></div>
+        <div><b>10L+</b><span>downloads of Timepay, the UPI app I lead</span></div>
       </div>
     </div>
 
@@ -293,6 +325,7 @@ footer .wrap{padding-block:22px;border-top:1px solid color-mix(in srgb,var(--bg)
         <div style="display:flex;flex-direction:column;gap:16px;min-width:0">
           <div class="case-top"><h3>Timepay: UPI payments app</h3><span class="co">Network People Services · 2023–now</span></div>
           <p>I own the architecture and delivery of Timepay, a full UPI payments app. I built its login, registration, device-binding and transaction API layers from scratch.</p>
+          <div class="proof"><b>10L+</b><span>downloads on Google Play</span><a href="https://play.google.com/store/apps/details?id=com.npst.timepay.society" target="_blank" rel="noopener">View on Play Store ↗</a></div>
           <div class="featlist">
             <div class="feat"><b>Instant transfers</b><span>Core UPI send and collect</span></div>
             <div class="feat"><b>UPI Lite</b><span>Small-value, on-device wallet</span></div>
@@ -365,6 +398,33 @@ footer .wrap{padding-block:22px;border-top:1px solid color-mix(in srgb,var(--bg)
   </div>
 </section>
 
+<section id="leadership">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="label">How I lead</span>
+      <h2>I set the foundation, then help the team build on it well.</h2>
+      <p>What I do day to day as the person teams come to for architecture and new projects.</p>
+    </div>
+    <div class="lead-grid">
+      <article class="decision">
+        <span class="label">A decision I made</span>
+        <h3>One shared core for two bank apps</h3>
+        <dl class="dl">
+          <dt>Situation</dt><dd>Two regional bank apps, Kagb and Kgb, needed the same login, device binding and network setup.</dd>
+          <dt>Decision</dt><dd>Instead of building that twice, I designed a single core package both apps depend on, with app-specific code kept outside it.</dd>
+          <dt>Result</dt><dd>Less duplicated setup, one standard infrastructure across both codebases, and fixes made once reach both apps.</dd>
+        </dl>
+      </article>
+      <div class="practices">
+        <div class="practice"><span class="ic">{ }</span><div><h3>Set up the codebase first</h3><p>For new apps like Mahindra Finance and the Hutch Super App, I define the project structure, BLoC patterns and core setup before the team starts, so everyone builds the same way.</p></div></div>
+        <div class="practice"><span class="ic">✓</span><div><h3>Review code against clear standards</h3><p>I review pull requests against agreed Flutter architecture and code standards, and explain the why so the same feedback isn't needed twice.</p></div></div>
+        <div class="practice"><span class="ic">↗</span><div><h3>Mentor a team of 3</h3><p>I lead and mentor a team of 3 developers, onboard them onto our architecture patterns, and stay their go-to person for technical questions across several client apps.</p></div></div>
+        <div class="practice"><span class="ic">⇄</span><div><h3>Agree API contracts early</h3><p>I work with backend teams to define API contracts up front, so mobile and backend can build in parallel without surprises at integration.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section id="experience">
   <div class="wrap">
     <div class="sec-head">
@@ -377,11 +437,11 @@ footer .wrap{padding-block:22px;border-top:1px solid color-mix(in srgb,var(--bg)
         <div class="what">
           <h3>Senior Software Developer <span class="now">current</span><small>Network People Services Technologies</small></h3>
           <ul>
-            <li>Own architecture and delivery of the Timepay UPI app: login, registration, device binding and transaction layers.</li>
+            <li>Own architecture and delivery of the <a href="https://play.google.com/store/apps/details?id=com.npst.timepay.society" target="_blank" rel="noopener">Timepay UPI app</a> (10L+ downloads): login, registration, device binding and transaction layers.</li>
             <li>Designed the shared core package behind the Kagb and Kgb bank apps.</li>
             <li>Built the Mahindra Finance app from zero and its Mahindra Super App plugin.</li>
             <li>Wrote reusable camera, contacts and network plugins used across the team's payment apps.</li>
-            <li>Lead new-project setup and technical direction across several concurrent client apps, and mentor the team on Flutter architecture and code review.</li>
+            <li>Lead new-project setup and technical direction across several concurrent client apps, and lead and mentor a team of 3 on Flutter architecture and code review.</li>
             <li>Leading core setup, UI and project structure for the Hutch Super App.</li>
           </ul>
         </div>
@@ -468,6 +528,7 @@ footer .wrap{padding-block:22px;border-top:1px solid color-mix(in srgb,var(--bg)
     <div class="cards">
       <div class="cline"><div><span class="label">Email</span><a href="mailto:pandeypradeep817@yahoo.com" id="email">pandeypradeep817@yahoo.com</a></div><button class="copy" type="button" data-copy="pandeypradeep817@yahoo.com">Copy</button></div>
       <div class="cline"><div><span class="label">Phone</span><a href="tel:+919911505487" id="phone">+91 99115 05487</a></div><button class="copy" type="button" data-copy="+919911505487">Copy</button></div>
+      <div class="cline"><div><span class="label">Resume</span><a href="Pradeep_Pandey_Resume.pdf" target="_blank" rel="noopener">Download PDF ↓</a></div></div>
       <div class="cline"><div><span class="label">Location</span><output>Ghaziabad, Uttar Pradesh, India</output></div></div>
       <div class="cline" id="linkedin-line" hidden><div><span class="label">LinkedIn</span><a id="linkedin-link" href="#" target="_blank" rel="noopener"></a></div></div>
     </div>
@@ -477,7 +538,7 @@ footer .wrap{padding-block:22px;border-top:1px solid color-mix(in srgb,var(--bg)
 
 <script>
 /* Add your profile links here; buttons appear once a URL is filled in. */
-const LINKS = { linkedin: "", github: "https://github.com/pradeep817" };
+const LINKS = { linkedin: "https://www.linkedin.com/in/pradeep-pandey-a95951140", github: "https://github.com/pradeep817" };
 
 (function(){
   if (LINKS.linkedin){
