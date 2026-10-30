@@ -282,6 +282,83 @@ section{padding-block:64px}
 .lightbox p{position:absolute;bottom:calc(14px + env(safe-area-inset-bottom,0px));left:0;right:0;text-align:center;color:#FFFFFF;font-weight:500}
 .lb-close{position:absolute;top:calc(16px + env(safe-area-inset-top,0px));right:calc(16px + env(safe-area-inset-right,0px));width:44px;height:44px;border-radius:50%;border:0;background:#FFFFFF;color:#13132A;font:700 20px/1 var(--f-body);cursor:pointer}
 
+/* architecture */
+.arch{display:grid;grid-template-columns:1.25fr .75fr;gap:16px;align-items:start}
+.diagram{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:26px;display:flex;flex-direction:column;gap:16px;min-width:0}
+.diagram h3{font:800 20px/1.2 var(--f-display)}
+.diagram .note{font-size:13px;color:var(--muted)}
+.layers{display:flex;flex-direction:column;align-items:stretch;gap:0;position:relative}
+.layer{display:grid;grid-template-columns:120px 1fr;gap:14px;align-items:center;border-radius:16px;padding:14px 16px;position:relative;z-index:1}
+.layer .ln{font:500 11.5px/1.3 var(--f-mono);text-transform:uppercase;letter-spacing:.06em}
+.layer .items{display:flex;flex-wrap:wrap;gap:6px}
+.layer .items span{font:500 12.5px/1 var(--f-mono);padding:7px 9px;border-radius:9px;background:rgba(255,255,255,.6);color:var(--on-bright)}
+.L1{background:var(--pink);color:var(--on-bright)}
+.L2{background:var(--sun);color:var(--on-bright)}
+.L3{background:var(--lime);color:var(--on-bright)}
+.L4{background:var(--blue);color:var(--on-blue)} .L4 .items span{background:rgba(255,255,255,.18);color:var(--on-blue)}
+.L5{background:var(--dark);color:var(--on-dark)} .L5 .items span{background:rgba(255,255,255,.12);color:var(--on-dark)}
+.L6{background:var(--surface);color:var(--ink);border:2px dashed var(--ink)} .L6 .items span{background:var(--bg);color:var(--ink);border:1px solid var(--line)}
+.wire{height:30px;position:relative;display:flex;justify-content:center}
+.wire::before{content:"";width:2px;height:100%;background:repeating-linear-gradient(var(--muted) 0 4px,transparent 4px 8px);transform-origin:top}
+.wire .pkt{position:absolute;left:calc(50% - 6px);top:0;width:12px;height:12px;border-radius:50%;background:var(--blue);box-shadow:0 0 0 4px color-mix(in srgb,var(--blue) 25%,transparent);animation:pkt 2.4s ease-in-out infinite}
+.wire .pkt.up{left:calc(50% + 10px);background:var(--pink);box-shadow:0 0 0 4px color-mix(in srgb,var(--pink) 25%,transparent);animation-name:pktUp}
+@keyframes pkt{0%{top:-6px;opacity:0}15%{opacity:1}85%{opacity:1}100%{top:24px;opacity:0}}
+@keyframes pktUp{0%{top:24px;opacity:0}15%{opacity:1}85%{opacity:1}100%{top:-6px;opacity:0}}
+.legend{display:flex;gap:16px;flex-wrap:wrap;font-size:12.5px;color:var(--muted)}
+.legend i{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:6px;vertical-align:-1px}
+.hub{display:flex;flex-direction:column;align-items:center;gap:0}
+.hub .core{background:var(--blue);color:var(--on-blue);border-radius:18px;padding:16px 18px;text-align:center;display:flex;flex-direction:column;gap:8px;width:100%}
+.hub .core b{font:800 16px/1 var(--f-display)}
+.hub .core div{display:flex;flex-wrap:wrap;gap:5px;justify-content:center}
+.hub .core span{font:500 11.5px/1 var(--f-mono);background:rgba(255,255,255,.18);padding:6px 8px;border-radius:8px}
+.fan{display:grid;grid-template-columns:1fr 1fr;gap:10px;width:100%;position:relative;padding-top:28px}
+.fan::before{content:"";position:absolute;top:0;left:25%;right:25%;height:16px;border:2px dashed var(--muted);border-bottom:0;border-radius:12px 12px 0 0}
+.fan::after{content:"";position:absolute;top:-14px;left:50%;width:2px;height:14px;background:var(--muted)}
+.app{border-radius:16px;padding:14px;text-align:center;display:flex;flex-direction:column;gap:4px}
+.app b{font:800 15px/1.1 var(--f-display)}
+.app span{font-size:12px;font-weight:500}
+.plugins{margin-top:14px;width:100%;border:2px dashed var(--line);border-radius:16px;padding:12px;display:flex;flex-direction:column;gap:8px;align-items:center}
+.plugins small{font:500 11px/1 var(--f-mono);color:var(--muted);text-transform:uppercase;letter-spacing:.08em}
+.plugins div{display:flex;gap:6px;flex-wrap:wrap;justify-content:center}
+/* build-in animation, only for diagrams that start below the fold */
+.diagram.build .layer,.diagram.build .wire,.diagram.build .core,.diagram.build .app,.diagram.build .plugins{animation:rise .5s cubic-bezier(.2,.8,.2,1) backwards}
+.diagram.build .wire::before{animation:grow .4s ease-out backwards;animation-delay:inherit}
+@keyframes rise{from{opacity:0;transform:translateY(16px) scale(.97)}}
+@keyframes grow{from{transform:scaleY(0)}}
+@media (max-width:900px){.arch{grid-template-columns:1fr}}
+@media (max-width:520px){.layer{grid-template-columns:1fr;gap:8px}}
+
+/* widget tree */
+.devtools{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
+.dt-bar{display:flex;align-items:center;gap:10px;flex-wrap:wrap;padding:12px 16px;background:#141529;color:#E4E6F7}
+.dt-bar b{font:500 12.5px/1 var(--f-mono)}
+.dt-bar .sp{flex:1}
+.dt-bar button{background:#1E2040;color:#E4E6F7;border:1px solid #2A2C48;border-radius:999px;padding:7px 12px;font:500 12px/1 var(--f-mono);cursor:pointer}
+.dt-bar button:hover{border-color:#C8F25C;color:#C8F25C}
+.tree{padding:18px 18px 22px;font-family:var(--f-mono)}
+.tree .root{font:500 13.5px/1.6 var(--f-mono);color:var(--muted)}
+.tree .root b{color:var(--blue);font-weight:500}
+.branch{margin-left:12px;padding-left:20px;border-left:2px dashed var(--line);display:flex;flex-direction:column;gap:10px;padding-block:10px}
+.node2{position:relative}
+.node2::before{content:"";position:absolute;left:-20px;top:24px;width:16px;border-top:2px dashed var(--line)}
+.node2>summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:10px;flex-wrap:wrap;padding:12px 14px;border-radius:14px;border:1px solid var(--line);background:var(--bg);transition:border-color .15s}
+.node2>summary::-webkit-details-marker{display:none}
+.node2>summary:hover{border-color:var(--blue)}
+.node2>summary .car{width:22px;height:22px;border-radius:7px;background:var(--surface);border:1px solid var(--line);display:grid;place-items:center;font-size:11px;transition:transform .2s;flex:none}
+.node2[open]>summary .car{transform:rotate(90deg)}
+.node2 .wname{font:500 14.5px/1.3 var(--f-mono);color:var(--ink)}
+.node2 .wname em{font-style:normal;color:var(--pink)}
+.node2 .wname i{font-style:normal;color:var(--muted)}
+.node2 .wname q{quotes:"'" "'";color:#16A34A}
+.node2 .when2{margin-left:auto;font:500 12px/1 var(--f-mono);color:var(--muted);font-variant-numeric:tabular-nums}
+.node2.now>summary{border:2px solid var(--blue);background:var(--blue-soft)}
+.kids{margin-left:22px;padding:12px 0 4px 20px;border-left:2px dashed var(--line);display:flex;flex-direction:column;gap:8px;font-family:var(--f-body)}
+.kid{position:relative;font-size:15px;line-height:1.5;padding-left:2px}
+.kid::before{content:"";position:absolute;left:-20px;top:11px;width:14px;border-top:2px dashed var(--line)}
+.kid code{font:500 11.5px/1 var(--f-mono);color:var(--blue);background:var(--blue-soft);padding:3px 6px;border-radius:6px;margin-right:6px;vertical-align:1px}
+.kid a{color:var(--blue);font-weight:700;text-decoration:none}
+@media (max-width:560px){.node2 .when2{margin-left:32px;width:100%}.branch{margin-left:4px;padding-left:14px}.kids{margin-left:10px;padding-left:14px}.node2::before{left:-14px;width:10px}.kid::before{left:-14px;width:10px}}
+
 /* lead */
 .lead{display:grid;grid-template-columns:.95fr 1.05fr;gap:16px;align-items:stretch}
 .decision{background:var(--dark);color:var(--on-dark);border-radius:var(--r);padding:30px;display:flex;flex-direction:column;gap:18px;min-width:0}
@@ -357,6 +434,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
       <li><a href="#doctor">Doctor</a></li>
       <li><a href="#work">Work</a></li>
       <li><a href="#screens">Screens</a></li>
+      <li><a href="#architecture">Architecture</a></li>
       <li><a href="#leadership">How I lead</a></li>
       <li><a href="#experience">Experience</a></li>
       <li><a href="#skills">Skills</a></li>
@@ -559,6 +637,48 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 </section>
 <div class="lightbox" id="lightbox" hidden role="dialog" aria-modal="true" aria-label="Screenshot preview"><button class="lb-close" type="button" id="lb-close" aria-label="Close preview">✕</button><img id="lb-img" alt=""><p id="lb-cap"></p></div>
 
+<section id="architecture">
+  <div class="wrap">
+    <div class="head">
+      <span class="eyebrow cm-head">// lib/architecture/</span>
+      <h2>How I structure apps <mark>under the hood.</mark></h2>
+      <p>Simplified views of two systems I designed. The dots show a payment request travelling down to the NPCI UPI switch and the response coming back up.</p>
+    </div>
+    <div class="arch">
+      <article class="diagram" id="dg-timepay">
+        <div class="card-top"><h3>Timepay: layered Flutter app</h3><span class="badge b-blue">Architecture owner</span></div>
+        <div class="layers" role="img" aria-label="Timepay layers: UI, BLoC state, repositories, shared core and plugins, bank and UPI APIs, then the NPCI UPI switch">
+          <div class="layer L1"><span class="ln">UI</span><div class="items"><span>Home</span><span>Send money</span><span>Scan &amp; pay</span><span>UPI Lite</span><span>History</span></div></div>
+          <div class="wire"><span class="pkt"></span><span class="pkt up"></span></div>
+          <div class="layer L2"><span class="ln">State · BLoC</span><div class="items"><span>one BLoC per feature</span><span>events → states</span></div></div>
+          <div class="wire"><span class="pkt" style="animation-delay:.3s"></span><span class="pkt up" style="animation-delay:.3s"></span></div>
+          <div class="layer L3"><span class="ln">Repositories</span><div class="items"><span>login &amp; registration</span><span>device binding</span><span>transactions</span></div></div>
+          <div class="wire"><span class="pkt" style="animation-delay:.6s"></span><span class="pkt up" style="animation-delay:.6s"></span></div>
+          <div class="layer L4"><span class="ln">Core &amp; plugins</span><div class="items"><span>network handling</span><span>QR / camera scan</span><span>contacts</span></div></div>
+          <div class="wire"><span class="pkt" style="animation-delay:.9s"></span><span class="pkt up" style="animation-delay:.9s"></span></div>
+          <div class="layer L5"><span class="ln">Backend</span><div class="items"><span>bank &amp; UPI APIs (REST)</span></div></div>
+          <div class="wire"><span class="pkt" style="animation-delay:1.2s"></span><span class="pkt up" style="animation-delay:1.2s"></span></div>
+          <div class="layer L6"><span class="ln">NPCI · UPI switch</span><div class="items"><span>routes payment request</span><span>returns response</span></div></div>
+        </div>
+        <div class="legend"><span><i style="background:var(--blue)"></i>request</span><span><i style="background:var(--pink)"></i>response</span></div>
+      </article>
+
+      <article class="diagram" id="dg-core">
+        <div class="card-top"><h3>One core, many apps</h3><span class="badge b-lime">Designed &amp; led</span></div>
+        <div class="hub" role="img" aria-label="One shared core package used by the Kagb and Kgb bank apps, with reusable plugins">
+          <div class="core"><b>core package</b><div><span>login</span><span>device binding</span><span>network setup</span></div></div>
+          <div class="fan">
+            <div class="app L1"><b>Kagb</b><span>Karnataka bank app</span></div>
+            <div class="app L2"><b>Kgb</b><span>Kerala bank app</span></div>
+          </div>
+          <div class="plugins"><small>reusable plugins</small><div><span class="tag">camera scan</span><span class="tag">contacts</span><span class="tag">network</span></div></div>
+        </div>
+        <p class="note">Fixes made once in the core reach both apps. App-specific code stays outside it.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
 <section id="leadership">
   <div class="wrap">
     <div class="head">
@@ -588,56 +708,40 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 <section id="experience">
   <div class="wrap">
     <div class="head">
-      <span class="eyebrow cm-head">$ git log --author="Pradeep" --reverse</span>
-      <h2>From Android intern to <mark>mobile architect.</mark></h2>
+      <span class="eyebrow cm-head">// lib/career/widget_tree.dart</span>
+      <h2>My career, <mark>as a widget tree.</mark></h2>
+      <p>From Android intern to mobile architect. Tap a widget to expand it.</p>
     </div>
-    <div class="tl">
-      <div class="job now">
-        <div class="when"><span class="badge b-blue">Current</span><b>Apr 2023 – Present</b><span>Noida</span></div>
-        <div class="what">
-          <h3>Senior Software Developer<small>Network People Services Technologies</small></h3>
-          <ul>
-            <li>Own architecture and delivery of the <a href="https://play.google.com/store/apps/details?id=com.npst.timepay.society" target="_blank" rel="noopener">Timepay UPI app</a> (10L+ downloads): login, registration, device binding and transaction layers.</li>
-            <li>Designed the shared core package behind the Kagb and Kgb bank apps.</li>
-            <li>Built the Mahindra Finance app from zero and its Mahindra Super App plugin.</li>
-            <li>Wrote reusable camera, contacts and network plugins used across the team's payment apps.</li>
-            <li>Lead new-project setup and technical direction across several client apps, and lead and mentor a team of 3.</li>
-            <li>Leading core setup, UI and project structure for the Hutch Super App.</li>
-          </ul>
+    <div class="devtools">
+      <div class="dt-bar"><b>Flutter DevTools · Widget Inspector</b><span class="sp"></span><button type="button" id="tree-open">Expand all</button><button type="button" id="tree-close">Collapse all</button></div>
+      <div class="tree" role="tree" aria-label="Career shown as a Flutter widget tree">
+        <div class="root"><b>MaterialApp</b> → <b>Career</b>(developer: <q style="quotes:none;color:#16A34A">'Pradeep'</q>)</div>
+        <div class="branch">
+          <details class="node2 now" open>
+            <summary><span class="car">▶</span><span class="wname"><em>NetworkPeopleServices</em>(<i>role:</i> <q>Senior Software Developer</q>)</span><span class="when2">Apr 2023 – now · Noida · <b style="color:var(--blue)">current</b></span></summary>
+            <div class="kids"><div class="kid"><code>Timepay</code>Own architecture and delivery of the <a href="https://play.google.com/store/apps/details?id=com.npst.timepay.society" target="_blank" rel="noopener">Timepay UPI app</a> (10L+ downloads): login, registration, device binding and transaction layers.</div><div class="kid"><code>SharedCore</code>Designed the shared core package behind the Kagb and Kgb bank apps.</div><div class="kid"><code>MahindraFinance</code>Built the Mahindra Finance app from zero and its Mahindra Super App plugin.</div><div class="kid"><code>Plugins</code>Wrote reusable camera, contacts and network plugins used across the team's payment apps.</div><div class="kid"><code>TeamLead</code>Lead new-project setup and technical direction across several client apps, and lead and mentor a team of 3.</div><div class="kid"><code>HutchSuperApp</code>Leading core setup, UI and project structure for the Hutch Super App.</div></div>
+          </details>
+          <details class="node2" open>
+            <summary><span class="car">▶</span><span class="wname"><em>StellarDigital</em>(<i>role:</i> <q>Flutter Application Developer</q>)</span><span class="when2">Jan 2022 – Apr 2023 · Gurugram</span></summary>
+            <div class="kids"><div class="kid"><code>YAAMS</code>Sole developer of <a href="https://play.google.com/store/apps/details?id=in.yaams" target="_blank" rel="noopener">YAAMS</a>, an HRMS app for attendance and daily tasks, built end to end.</div><div class="kid"><code>StoreRelease</code>Took it through Play Store and App Store release.</div></div>
+          </details>
+          <details class="node2">
+            <summary><span class="car">▶</span><span class="wname"><em>SrdvTechnologies</em>(<i>role:</i> <q>Senior Flutter Application Developer</q>)</span><span class="when2">Apr 2019 – Apr 2022 · Noida</span></summary>
+            <div class="kids"><div class="kid"><code>TravelApps</code>Built travel and booking apps Chillontrip, FastbookTrip and King Holiday.</div><div class="kid"><code>DeepEnterprise</code>Built the Deep Enterprise wine-selling app with cart and checkout.</div><div class="kid"><code>Sologo</code>Designed Sologo B2C and Sologo Partner B2B in native Android (Java).</div></div>
+          </details>
+          <details class="node2">
+            <summary><span class="car">▶</span><span class="wname"><em>EmagTechnology</em>(<i>role:</i> <q>Android Application Developer</q>)</span><span class="when2">Jan 2018 – Mar 2019 · India</span></summary>
+            <div class="kids"><div class="kid"><code>MidSketch</code>Built MidSketch, a political networking app in Kotlin: UX, API integration and performance tuning.</div></div>
+          </details>
+          <details class="node2">
+            <summary><span class="car">▶</span><span class="wname"><em>VMCConsulting</em>(<i>role:</i> <q>Android Application Developer</q>)</span><span class="when2">Jun 2017 – Dec 2017 · New Delhi</span></summary>
+            <div class="kids"><div class="kid"><code>SwachhDehradun</code>Delivered UI and features for Swachh Dehradun, a civic app for a government client.</div></div>
+          </details>
+          <details class="node2">
+            <summary><span class="car">▶</span><span class="wname"><em>AresourcePool</em>(<i>role:</i> <q>Android App Development Intern</q>)</span><span class="when2">Dec 2016 – May 2017 · Noida</span></summary>
+            <div class="kids"><div class="kid"><code>FirstApps</code>Built and maintained Java-based Android apps.</div></div>
+          </details>
         </div>
-      </div>
-      <div class="job">
-        <div class="when"><b>Jan 2022 – Apr 2023</b><span>Gurugram</span></div>
-        <div class="what">
-          <h3>Flutter Application Developer<small>Stellar Digital Pvt. Ltd</small></h3>
-          <ul>
-            <li>Sole developer of <a href="https://play.google.com/store/apps/details?id=in.yaams" target="_blank" rel="noopener">YAAMS</a>, an HRMS app for attendance and daily tasks, built end to end.</li>
-            <li>Took it through Play Store and App Store release.</li>
-          </ul>
-        </div>
-      </div>
-      <div class="job">
-        <div class="when"><b>Apr 2019 – Apr 2022</b><span>Noida</span></div>
-        <div class="what">
-          <h3>Senior Flutter Application Developer<small>Srdv Technologies</small></h3>
-          <ul>
-            <li>Built travel and booking apps Chillontrip, FastbookTrip and King Holiday.</li>
-            <li>Built the Deep Enterprise wine-selling app with cart and checkout.</li>
-            <li>Designed Sologo B2C and Sologo Partner B2B in native Android (Java).</li>
-          </ul>
-        </div>
-      </div>
-      <div class="job">
-        <div class="when"><b>Jan 2018 – Mar 2019</b><span>India</span></div>
-        <div class="what"><h3>Android Application Developer<small>Emag Technology</small></h3><ul><li>Built MidSketch, a political networking app in Kotlin: UX, API integration and performance tuning.</li></ul></div>
-      </div>
-      <div class="job">
-        <div class="when"><b>Jun 2017 – Dec 2017</b><span>New Delhi</span></div>
-        <div class="what"><h3>Android Application Developer<small>VMC Management Consulting</small></h3><ul><li>Delivered UI and features for Swachh Dehradun, a civic app for a government client.</li></ul></div>
-      </div>
-      <div class="job">
-        <div class="when"><b>Dec 2016 – May 2017</b><span>Noida</span></div>
-        <div class="what"><h3>Android App Development Intern<small>AresourcePool</small></h3><ul><li>Built and maintained Java-based Android apps.</li></ul></div>
       </div>
     </div>
   </div>
@@ -803,6 +907,22 @@ const LINKS = { linkedin: "https://www.linkedin.com/in/pradeep-pandey-a95951140"
   const closeLb=()=>{lb.hidden=true; lastShot&&lastShot.focus();};
   lb.addEventListener('click',closeLb);
   document.addEventListener('keydown',e=>{ if(e.key==='Escape'&&!lb.hidden) closeLb(); });
+
+  /* ---------- widget tree ---------- */
+  const nodes=[...document.querySelectorAll('.node2')];
+  document.getElementById('tree-open').addEventListener('click',()=>nodes.forEach(n=>n.open=true));
+  document.getElementById('tree-close').addEventListener('click',()=>nodes.forEach(n=>n.open=false));
+
+  /* ---------- architecture build-in (only if it starts below the fold) ---------- */
+  if(!reduce && 'IntersectionObserver' in window){
+    document.querySelectorAll('.diagram').forEach(d=>{
+      if(d.getBoundingClientRect().top < innerHeight) return;
+      const parts=d.querySelectorAll('.layer,.wire,.core,.app,.plugins');
+      parts.forEach((el,i)=>el.style.animationDelay=(i*0.12)+'s');
+      const io=new IntersectionObserver(es=>{ if(es[0].isIntersecting){ d.classList.add('build'); io.disconnect(); } },{threshold:.25});
+      io.observe(d);
+    });
+  }
 
   if (LINKS.github){ const g=document.getElementById('github-btn'); g.href=LINKS.github; g.hidden=false; }
   document.querySelectorAll('.copy').forEach(btn=>{
