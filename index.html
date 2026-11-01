@@ -225,6 +225,7 @@ section{padding-block:64px}
 .card-top{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;flex-wrap:wrap}
 .card h3{font:800 clamp(20px,2vw,25px)/1.15 var(--f-display);letter-spacing:-.01em}
 .who{font:500 12px/1.4 var(--f-mono);color:var(--muted)}
+.who b{color:var(--ink);font-weight:700}
 .card p{color:var(--muted);font-size:15.5px}
 .card ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px;font-size:15px}
 .card li{display:grid;grid-template-columns:18px 1fr;gap:8px}
@@ -566,7 +567,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
         <div class="tp">
           <div class="tp-left">
             <div class="card-top"><h3>Timepay: UPI payments app</h3><span class="badge b-blue">Architecture owner</span></div>
-            <span class="who">Network People Services · 2023 – now</span>
+            <span class="who"><b>Network People Services</b> · 2023 – now</span>
             <p>I own Timepay's architecture and delivery. I built its login, registration, device-binding and transaction API layers from scratch.</p>
             <div class="feat">
               <div><b>Instant transfers</b><span>UPI send &amp; collect</span></div>
@@ -586,7 +587,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 
       <article class="card w-half">
         <div class="card-top"><h3>Shared bank core</h3><span class="badge b-lime">Designed &amp; led</span></div>
-        <span class="who">Kagb &amp; Kgb · Karnataka &amp; Kerala</span>
+        <span class="who"><b>Network People Services</b> · client: Kagb &amp; Kgb banks (Karnataka &amp; Kerala) · 2023 – now</span>
         <p>One core package that two regional bank apps run on. It removed duplicated setup and standardised infrastructure across both codebases.</p>
         <div class="core" role="img" aria-label="One core package powering the Kagb and Kgb bank apps, with shared plugins">
           <div class="node main">core package</div>
@@ -599,7 +600,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 
       <article class="card w-half">
         <div class="card-top"><h3>YAAMS: HRMS app</h3><span class="badge b-pink">Sole developer</span></div>
-        <span class="who">Stellar Digital · 2022 – 23</span>
+        <span class="who"><b>Stellar Digital</b> · 2022 – 23</span>
         <p>I built this HR app end to end, on my own. It automates attendance tracking and daily task management.</p>
         <ul>
           <li>Cross-platform in Flutter with Kotlin native modules</li>
@@ -610,7 +611,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 
       <article class="card w-third">
         <div class="card-top"><h3>Mahindra Finance</h3><span class="badge b-sun">Built from zero</span></div>
-        <span class="who">2023 – now</span>
+        <span class="who"><b>Network People Services</b> · client: Mahindra Finance · 2023 – now</span>
         <ul>
           <li>Device registration and transaction history modules</li>
           <li>Plugin that brings it into the Mahindra Super App</li>
@@ -620,7 +621,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 
       <article class="card w-third">
         <div class="card-top"><h3>Hutch Super App</h3><span class="badge b-blue">Architecture lead</span></div>
-        <span class="who">In development · Sri Lanka</span>
+        <span class="who"><b>Network People Services</b> · client: Hutch, Sri Lanka · in development</span>
         <ul>
           <li>Telecom super-app core setup</li>
           <li>Project structure, UI and BLoC patterns the team builds on</li>
@@ -630,7 +631,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 
       <article class="card w-third">
         <div class="card-top"><h3>Travel suite</h3><span class="badge b-lime">4 apps</span></div>
-        <span class="who">Srdv Technologies · 2019 – 22</span>
+        <span class="who"><b>Srdv Technologies</b> · 2019 – 22</span>
         <ul>
           <li>Chillontrip, FastbookTrip, King Holiday: flights, buses, hotels</li>
           <li>Sologo B2C &amp; B2B on one backend, native Android</li>
@@ -703,6 +704,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
     <div class="arch">
       <article class="diagram" id="dg-timepay">
         <div class="card-top"><h3>Timepay: layered Flutter app</h3><span class="badge b-blue">Architecture owner</span></div>
+        <span class="who"><b>Network People Services</b> · Timepay UPI app</span>
         <div class="layers" role="img" aria-label="Timepay layers: UI, BLoC state, repositories, shared core and plugins, bank and UPI APIs, then the NPCI UPI switch">
           <div class="layer L1"><span class="ln">UI</span><div class="items"><span>Home</span><span>Send money</span><span>Scan &amp; pay</span><span>UPI Lite</span><span>History</span></div></div>
           <div class="wire"><span class="pkt"></span><span class="pkt up"></span></div>
@@ -721,6 +723,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 
       <article class="diagram" id="dg-core">
         <div class="card-top"><h3>One core, many apps</h3><span class="badge b-lime">Designed &amp; led</span></div>
+        <span class="who"><b>Network People Services</b> · client: Kagb &amp; Kgb banks</span>
         <div class="hub" role="img" aria-label="One shared core package used by the Kagb and Kgb bank apps, with reusable plugins">
           <div class="core"><b>core package</b><div><span>login</span><span>device binding</span><span>network setup</span></div></div>
           <div class="fan">
@@ -906,7 +909,7 @@ const LINKS = { linkedin: "https://www.linkedin.com/in/pradeep-pandey-a95951140"
   const COMMANDS={
     help:()=>{L('Available commands:','dim');[['about','who I am'],['projects','apps I built'],['skills','my stack'],['experience','where I worked'],['contact','email &amp; phone'],['resume','download my resume'],['linkedin','open my LinkedIn'],['github','open my GitHub'],['codz','my open-source CLI'],['hire','the important one'],['clear','clear the screen']].forEach(([c,d])=>L(`  <span class="hl">${c.padEnd(11)}</span><span class="dim">${d}</span>`)); L('Tip: press <span class="hl">r</span> anywhere on the page to hot reload.','dim');},
     about:()=>{L('Pradeep Pandey · Flutter Team Lead / Mobile Tech Lead');L('9+ years in mobile. I own architecture for UPI payment and banking apps','dim');L('and lead a team of 3 developers. Based in Delhi NCR.','dim');},
-    projects:()=>{[['Timepay','UPI app, 10L+ downloads, architecture owner'],['Shared bank core','one core package for Kagb &amp; Kgb bank apps'],['Mahindra Finance','built from zero + Super App plugin'],['Hutch Super App','telecom super-app, architecture lead'],['YAAMS','HRMS app, sole developer'],['Travel suite','4 booking apps, Flutter + Android'],['codz-cli','open-source dev CLI, on npm']].forEach(([a,b])=>L(`<span class="ok">▸</span> ${a.padEnd(17)}<span class="dim">${b}</span>`)); L('Full details: <a href="#work">scroll to Work ↓</a>');},
+    projects:()=>{[['Timepay','Network People Services · UPI app, 10L+ downloads'],['Shared bank core','Network People Services · Kagb &amp; Kgb banks'],['Mahindra Finance','Network People Services · built from zero'],['Hutch Super App','Network People Services · architecture lead'],['YAAMS','Stellar Digital · HRMS app, sole developer'],['Travel suite','Srdv Technologies · 4 booking apps'],['codz-cli','open-source dev CLI, on npm']].forEach(([a,b])=>L(`<span class="ok">▸</span> ${a.padEnd(17)}<span class="dim">${b}</span>`)); L('Full details: <a href="#work">scroll to Work ↓</a>');},
     skills:()=>{L('dependencies:','hl');['flutter: ^9.0.0 <span class="dim"># years</span>','dart: any','flutter_bloc: any','kotlin: native modules','upi: [lite, global, qr, intent]','leadership: team_of_3'].forEach(t=>L('  '+t));},
     experience:()=>{[['2023–now','Senior Software Developer, Network People Services'],['2022–23','Flutter Developer, Stellar Digital'],['2019–22','Senior Flutter Developer, Srdv Technologies'],['2018–19','Android Developer, Emag Technology'],['2017','Android Developer, VMC Management Consulting'],['2016–17','Android Intern, AresourcePool']].forEach(([a,b])=>L(`<span class="hl">${a.padEnd(10)}</span>${b}`));},
     contact:()=>{L('email  pandeypradeep817@yahoo.com');L('phone  +91 99115 05487');L('Or <a href="#contact">jump to the contact section ↓</a>','dim');},
